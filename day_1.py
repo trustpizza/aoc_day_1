@@ -21,6 +21,24 @@ def find_elven_calories(list):
     # For the list, first split at eat lines
     #print(list.split("\n"))
     seperate_lists_for_each_elf = find_elven_lists_sums(list.split('\n'))
-    return max(seperate_lists_for_each_elf)
+    return seperate_lists_for_each_elf
 
+def find_elf_with_most_calories(list):
+    return max(find_elven_calories(list))
 
+print(find_elf_with_most_calories("""
+1000
+2000
+3000
+
+4000
+
+5000
+6000
+
+7000
+8000
+9000
+
+10000
+"""))
