@@ -17,16 +17,18 @@ def find_elven_lists_sums(list):
     return out
 
 def find_elven_calories(list):
-    # First, we need to clean the list
-    # For the list, first split at eat lines
-    #print(list.split("\n"))
     seperate_lists_for_each_elf = find_elven_lists_sums(list.split('\n'))
     return seperate_lists_for_each_elf
 
-def find_elf_with_most_calories(list):
+def elf_with_most_calories(list):
     return max(find_elven_calories(list))
 
-print(find_elf_with_most_calories("""
+def top_3_elves(list):
+    list = find_elven_calories(list)
+    highest = elf_with_most_calories(list)
+    return list
+
+print(top_3_elves("""
 1000
 2000
 3000
@@ -42,3 +44,23 @@ print(find_elf_with_most_calories("""
 
 10000
 """))
+    
+
+"""
+print(elf_with_most_calories("""
+1000
+2000
+3000
+
+4000
+
+5000
+6000
+
+7000
+8000
+9000
+
+10000
+"""))
+"""
