@@ -1,20 +1,29 @@
-def split_lists_by_enter(list):
-    lists_as_dict = {}
-    lists = list.splitlines()
-    for item in lists:
-        list_arr = []
-        if len(item) > 1:
-            list_arr.append(item)
 
-        print(list_arr)
-        
+def convert_list_values_to_numbers(list):
+    for idx, item in enumerate(list):
+        list[idx] = int(item)
+    return sum(list)
+
+def find_elven_lists_sums(list):
+    out = []
+    arr = []
+    for idx,item in enumerate(list):
+        if len(list[idx]) > 1:
+            arr.append(item)
+        else:
+            #arr = convert_list_values_to_numbers(arr)
+            out.append(convert_list_values_to_numbers(arr))
+            arr = []
+    return out
 
 def find_elven_calories(list):
     # First, we need to clean the list
     # For the list, first split at eat lines
-    split_lists_by_enter(list)
+    #print(list.split("\n"))
+    seperate_lists_for_each_elf = find_elven_lists_sums(list.split('\n'))
+    return max(seperate_lists_for_each_elf)
 
-find_elven_calories("""1000
+print(find_elven_calories("""1000
 2000
 3000
 
@@ -28,4 +37,4 @@ find_elven_calories("""1000
 9000
 
 10000
-""")
+"""))
